@@ -16,6 +16,7 @@ try {
     die("Falha na conexão: " . $e->getMessage());
 }
 
+/* Funções */
 function cadastrarGenFuncPers($conn)
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar'])) {
@@ -73,7 +74,6 @@ function editarGenFuncPers($pdo)
         $deficiencia = $_POST['deficiencia'];
 
         try {
-            // Query corrigida
             $sql = "UPDATE areaAluno SET 
                     nomeCompletoAluno = :nome, 
                     idade = :idade, 
@@ -86,7 +86,6 @@ function editarGenFuncPers($pdo)
 
             $stmt = $pdo->prepare($sql);
 
-            // Bind dos valores
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':idade', $idade);
             $stmt->bindParam(':genero', $genero);
@@ -96,7 +95,6 @@ function editarGenFuncPers($pdo)
             $stmt->bindParam(':deficiencia', $deficiencia);
             $stmt->bindParam(':id', $id);
 
-            // Executa a query
             $stmt->execute();
 
             $_SESSION['mensagem'] = '<div class="alert alert-success">Dados atualizados com sucesso!</div>';
@@ -127,10 +125,13 @@ function excluirGenFuncPers($conn)
     }
 }
 
+/* Chama as funções */
 cadastrarGenFuncPers($conn);
 editarGenFuncPers($conn);
 excluirGenFuncPers($conn);
 
+
+/* Buscar */
 $searchTerm = isset($_POST['search']) ? htmlspecialchars($_POST['search']) : '';
 $searchWildcard = "%$searchTerm%";
 
@@ -144,6 +145,7 @@ $funcionario = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $conn = null;
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -156,6 +158,7 @@ $conn = null;
 
     <title>DarkSide Academia - Gerenciar Alunos</title>
     <link rel="icon" type="image/x-icon" href="icone.png">
+    <!-- Chama navbar -->
     <div id="navbar"></div>
 
     <style>
@@ -187,6 +190,7 @@ $conn = null;
             margin-bottom: 20px;
         }
 
+        /* Botões */
         .btn-sm {
             font-size: 0.8rem;
             padding: 0.25rem 0.5rem;
@@ -196,7 +200,7 @@ $conn = null;
             opacity: 0.8;
         }
 
-
+        /* Botões */
         .btn-warning,
         .btn-danger {
             font-size: 1.1rem;
@@ -204,7 +208,7 @@ $conn = null;
             width: 100%;
         }
 
-
+        /* Hover do card da tabela */
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none;
@@ -217,6 +221,7 @@ $conn = null;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
+        /* Card das tabelas */
         .card-title {
             padding: 2rem;
             margin-bottom: 0.25rem;
@@ -245,12 +250,14 @@ $conn = null;
             flex: 1;
         }
 
+        /* div de editar e excluir da tabela */
         .d-flex {
             flex-direction: column;
             align-items: flex-start;
             gap: 10px;
         }
 
+        /* Ajusta a navbar que foi chamada */
         #navbar {
             position: fixed;
             top: 0;
@@ -265,7 +272,7 @@ $conn = null;
             margin-top: 20px;
         }
 
-        /* Responsividade */
+        /* Responsividade para telas menores */
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -298,10 +305,11 @@ $conn = null;
 
         <div id="borda">
 
+            <!-- Botão de cadastro do aluno, modal(js) foi usado -->
             <div class="text-center mb-4">
                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cadastroModal">Cadastrar Aluno</button>
             </div>
-
+            <!-- Modal Cadastrar Aluno -->
             <div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <form method="POST">
@@ -367,13 +375,14 @@ $conn = null;
             <h3 class="text-center" style="color: white;">Lista de Alunos</h3><br>
 
             <?php
-            // Exibir a mensagem se ela estiver na sessão
+            // Exibe mensagem usando div
             if (isset($_SESSION['mensagem'])) {
                 echo $_SESSION['mensagem'];
                 unset($_SESSION['mensagem']); // Limpa a mensagem após exibição
             }
             ?><br>
 
+            <!-- Form de busca por nome e CPF -->
             <form method="POST" class="mb-4">
                 <div class="row">
                     <div class="col-md-8">
@@ -387,6 +396,7 @@ $conn = null;
 
             <div class="container mt-4">
                 <div class="row">
+                    <!-- Lista dos cadastrados usando divs em vez de table -->
                     <?php if (count($funcionario) > 0) : ?>
                         <?php foreach ($funcionario as $funcionario) : ?>
                             <div class="col-12 mb-3">
@@ -409,6 +419,7 @@ $conn = null;
                                 </div>
                             </div>
 
+                            <!-- Editar dados usando Modal(js) -->
                             <div class="modal fade" id="editModal<?php echo $funcionario['id_aluno']; ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <form method="POST">
@@ -473,7 +484,7 @@ $conn = null;
                                     </form>
                                 </div>
                             </div>
-
+                                    <!-- Modal(js) para confirmar exclusão de dados -->
                             <div class="modal fade" id="deleteModal<?php echo $funcionario['id_aluno']; ?>" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -492,6 +503,8 @@ $conn = null;
                                 </div>
                             </div>
 
+
+                                    <!-- Modal para visualizar todas as informações -->
                             <div class="modal fade" id="viewModal<?php echo $funcionario['id_aluno']; ?>" tabindex="-1" aria-labelledby="viewModalLabel<?php echo $funcionario['id_aluno']; ?>" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
@@ -524,6 +537,7 @@ $conn = null;
     </div>
 
     <script>
+        // Chama navbar
         fetch('navbar.php')
             .then(response => response.text())
             .then(data => {
@@ -531,7 +545,7 @@ $conn = null;
             })
             .catch(error => console.error('Erro ao carregar o navbar:', error));
 
-        // Função para esconder a mensagem após 4 segundos
+        // Função para esconder a mensagem após 5 segundos
         if (document.querySelector('.alert')) {
             setTimeout(() => {
                 document.querySelector('.alert').style.display = 'none'; // Esconde a mensagem

@@ -181,29 +181,29 @@ try {
             // Definindo treinos fictícios para cada nível de experiência
             $treinos = [
                 'Iniciante' => [
-                    ['titulo' => 'Treino de Corpo Completo', 'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia.', 'icone' => 'fa-dumbbell', 'class' => 'card-iniciante'],
-                    ['titulo' => 'Treino Superior', 'descricao' => 'Aenean vestibulum urna at orci tincidunt, non varius lacus scelerisque.', 'icone' => 'fa-person-running', 'class' => 'card-iniciante'],
-                    ['titulo' => 'Treino Inferior', 'descricao' => 'Sed auctor nunc eu sapien sollicitudin, nec viverra ligula venenatis.', 'icone' => 'fa-bolt', 'class' => 'card-iniciante']
+                    ['titulo' => 'Treino de Corpo Completo', 'descricao' => 'Treino A', 'icone' => 'fa-dumbbell', 'class' => 'card-iniciante'],
+                    ['titulo' => 'Treino Superior', 'descricao' => 'Treino B', 'icone' => 'fa-person-running', 'class' => 'card-iniciante'],
+                    ['titulo' => 'Treino Inferior', 'descricao' => 'Treino C', 'icone' => 'fa-bolt', 'class' => 'card-iniciante']
                 ],
                 'Intermediário' => [
-                    ['titulo' => 'Treino de Corpo Completo', 'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia.', 'icone' => 'fa-dumbbell', 'class' => 'card-intermediario'],
-                    ['titulo' => 'Treino Superior', 'descricao' => 'Aenean vestibulum urna at orci tincidunt, non varius lacus scelerisque.', 'icone' => 'fa-person-running', 'class' => 'card-intermediario'],
-                    ['titulo' => 'Treino Inferior', 'descricao' => 'Sed auctor nunc eu sapien sollicitudin, nec viverra ligula venenatis.', 'icone' => 'fa-bolt', 'class' => 'card-intermediario']
+                    ['titulo' => 'Treino de Corpo Completo', 'descricao' => 'Treino A', 'icone' => 'fa-dumbbell', 'class' => 'card-intermediario'],
+                    ['titulo' => 'Treino Superior', 'descricao' => 'Treino B', 'icone' => 'fa-person-running', 'class' => 'card-intermediario'],
+                    ['titulo' => 'Treino Inferior', 'descricao' => 'Treino C', 'icone' => 'fa-bolt', 'class' => 'card-intermediario']
                 ],
                 'Avançado' => [
-                    ['titulo' => 'Treino de Corpo Completo', 'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia.', 'icone' => 'fa-dumbbell', 'class' => 'card-avancado'],
-                    ['titulo' => 'Treino Superior', 'descricao' => 'Aenean vestibulum urna at orci tincidunt, non varius lacus scelerisque.', 'icone' => 'fa-person-running', 'class' => 'card-avancado'],
-                    ['titulo' => 'Treino Inferior', 'descricao' => 'Sed auctor nunc eu sapien sollicitudin, nec viverra ligula venenatis.', 'icone' => 'fa-bolt', 'class' => 'card-avancado']
+                    ['titulo' => 'Treino de Corpo Completo', 'descricao' => 'Treino A', 'icone' => 'fa-dumbbell', 'class' => 'card-avancado'],
+                    ['titulo' => 'Treino Superior', 'descricao' => 'Treino B', 'icone' => 'fa-person-running', 'class' => 'card-avancado'],
+                    ['titulo' => 'Treino Inferior', 'descricao' => 'Treino C', 'icone' => 'fa-bolt', 'class' => 'card-avancado']
                 ],
                 'Atleta' => [
-                    ['titulo' => 'Treino de Corpo Completo', 'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia.', 'icone' => 'fa-dumbbell', 'class' => 'card-atleta'],
-                    ['titulo' => 'Treino Superior', 'descricao' => 'Aenean vestibulum urna at orci tincidunt, non varius lacus scelerisque.', 'icone' => 'fa-person-running', 'class' => 'card-atleta'],
-                    ['titulo' => 'Treino Inferior', 'descricao' => 'Sed auctor nunc eu sapien sollicitudin, nec viverra ligula venenatis.', 'icone' => 'fa-bolt', 'class' => 'card-atleta']
+                    ['titulo' => 'Treino de Corpo Completo', 'descricao' => 'Treino A', 'icone' => 'fa-dumbbell', 'class' => 'card-atleta'],
+                    ['titulo' => 'Treino Superior', 'descricao' => 'Treino B', 'icone' => 'fa-person-running', 'class' => 'card-atleta'],
+                    ['titulo' => 'Treino Inferior', 'descricao' => 'Treino C', 'icone' => 'fa-bolt', 'class' => 'card-atleta']
                 ],
                 'Profissional' => [
-                    ['titulo' => 'Treino de Corpo Completo', 'descricao' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia.', 'icone' => 'fa-dumbbell', 'class' => 'card-profissional'],
-                    ['titulo' => 'Treino Superior', 'descricao' => 'Aenean vestibulum urna at orci tincidunt, non varius lacus scelerisque.', 'icone' => 'fa-person-running', 'class' => 'card-profissional'],
-                    ['titulo' => 'Treino Inferior', 'descricao' => 'Sed auctor nunc eu sapien sollicitudin, nec viverra ligula venenatis.', 'icone' => 'fa-bolt', 'class' => 'card-profissional']
+                    ['titulo' => 'Treino de Corpo Completo', 'descricao' => 'Treino A', 'icone' => 'fa-dumbbell', 'class' => 'card-profissional'],
+                    ['titulo' => 'Treino Superior', 'descricao' => 'Treino B', 'icone' => 'fa-person-running', 'class' => 'card-profissional'],
+                    ['titulo' => 'Treino Inferior', 'descricao' => 'Treino C', 'icone' => 'fa-bolt', 'class' => 'card-profissional']
                 ]
             ];
 
@@ -222,8 +222,6 @@ try {
                     echo '</div>';
                     echo '</div>';
                 }
-            } else {
-                echo '<p>Não há treino disponível para o seu nível de experiência.</p>';
             }
             ?>
         </div>

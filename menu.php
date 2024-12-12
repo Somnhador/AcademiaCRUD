@@ -1,3 +1,17 @@
+<?php
+/* Inicia uma sessão com o tipo da conta */
+session_start();
+
+$tipoDeConta = isset($_SESSION['tipoDeConta']) ? $_SESSION['tipoDeConta'] : null;
+
+/* Destrói a sessão após a pessoa apertar em sair da conta */
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: home.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
